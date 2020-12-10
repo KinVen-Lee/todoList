@@ -1,24 +1,24 @@
 
-interface IOwnState{
+interface IAction{
   type: string;
   id: number;
   value: string;
 }
-export const todos = (state = [], ownState:IOwnState ) => {
-  switch (ownState.type) {
+export const todos = (state = [], action:IAction ) => {
+  switch (action.type) {
     case "ADD_TODO":
       return [
         ...state,
         {
-          id: ownState.id,
-          value: ownState.value,
+          id: action.id,
+          value: action.value,
           completed: false,
           isEditor:false,
         },
       ];
     // case 'TOGGLE_TODO':
     //   return state.map(todo =>
-    //     (todo.id === ownState.id)
+    //     (todo.id === action.id)
     //       ? {...todo, completed: !todo.completed}
     //       : todo
     //   )
