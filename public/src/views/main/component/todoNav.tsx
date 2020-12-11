@@ -1,6 +1,6 @@
 import React from "react";
 import { VisibilityFilters } from "../actions";
-import { TodoNavButton } from "./index";
+import  TodoNavButton  from "./todoNavButton";
 export const TodoNav = () => {
   return (
     <div className="filters btn-group stack-exception">
@@ -8,7 +8,7 @@ export const TodoNav = () => {
       <TodoNavButton text={"Active"} filter={VisibilityFilters.SHOW_ACTIVE} />
       <TodoNavButton
         text={"Completed"}
-        filter={VisibilityFilters.SHOW_COMPLETED}
+        filter={VisibilityFilters.SHOW_COMPLETED }
       />
     </div>
   );

@@ -4,7 +4,12 @@ interface IAction{
   id: number;
   value: string;
 }
-export const todos = (state = [], action:IAction ) => {
+interface ITodoLsitItem{
+  id:number,
+  completed:boolean,
+  value:string,
+}
+export const todos = (state:Array<ITodoLsitItem> = [], action:IAction ) => {
   switch (action.type) {
     case "ADD_TODO":
       return [
@@ -13,16 +18,15 @@ export const todos = (state = [], action:IAction ) => {
           id: action.id,
           value: action.value,
           completed: false,
-          isEditor:false,
         },
       ];
-    // case 'TOGGLE_TODO':
-    //   return state.map(todo =>
-    //     (todo.id === action.id)
-    //       ? {...todo, completed: !todo.completed}
-    //       : todo
-    //   )
+    case 'TOGGLE_TODO':  
+      return state.map((todo:ITodoLsitItem) =>
+        (todo.id === action.id)
+          ? {...todo, completed: !todo.completed}
+          : todo
+      )
     default:
       return state;
   }
-};
+}

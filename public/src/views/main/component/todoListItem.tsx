@@ -1,5 +1,10 @@
 import React from "react";
-export const TodoListItem = () => {
+interface IProp {
+  id: number;
+  value: string;
+  completed: boolean;
+}
+export const TodoListItem = (prop: IProp) => {
   return (
     <li className="todo">
       <div className="stack-small">

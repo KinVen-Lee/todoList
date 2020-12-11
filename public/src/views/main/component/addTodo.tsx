@@ -2,19 +2,26 @@ import React, { ChangeEvent, FormEvent } from "react";
 import { addTodoAction } from "../actions";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-interface IState{
-  dispatch:Dispatch
+interface IProp {
+  dispatch: Dispatch;
 }
-export const addTodo = (state:IState) => {
+const AddTodo = (prop: IProp) => {
   let inputValue: string;
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(inputValue);
-    inputValue ? state.dispatch(addTodoAction(inputValue)) : "";
+    if (inputValue) {
+      prop.dispatch(addTodoAction(inputValue));
+      console.log("Todo add success");
+    } else {
+      console.log("Todo add error,because inputValue is null");
+    }
   }
+
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     inputValue = event.target.value;
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="label-wrapper">
@@ -36,4 +43,4 @@ export const addTodo = (state:IState) => {
     </form>
   );
 };
-export const AddTodo = connect()(addTodo);
+export default connect()(AddTodo);

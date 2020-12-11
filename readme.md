@@ -1,0 +1,10 @@
+store={
+    visibilityFilter:SHOW_ALL
+    todoList=[
+        {
+            id:0
+            completed:false,
+            value:KinVen
+        }
+    ]
+}
