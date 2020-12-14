@@ -6,11 +6,7 @@ interface IProp {
   text: string;
   filter: string;
   active: string;
-  onClick:
-    | ((
-        event: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-      ) => void)
-    | undefined;
+  onClick: (() => void) | undefined;
 }
 const TodoNavButton = (prop: IProp) => {
   return (

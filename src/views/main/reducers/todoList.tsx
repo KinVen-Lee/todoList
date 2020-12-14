@@ -1,6 +1,3 @@
-import { TodoListItem } from "../component";
-import todoListItem from "../component/todoListItem";
-
 interface IAction {
   type: string;
   id: number;
@@ -25,21 +22,29 @@ export const todoList = (state: Array<ITodoLsitItem> = [], action: IAction) => {
       ];
     case "DEL_TODO":
       console.log("del_todo");
-      return state.filter((todoListItem: ITodoLsitItem) => {
-        todoListItem.id !== action.id ? todoListItem : null;
-      });
+      return state.filter((todoListItem: ITodoLsitItem) =>
+        todoListItem.id !== action.id ? todoListItem : null
+      );
     case "UPDATE_TODO":
-      return state.map((todoListItem: ITodoLsitItem) => {
+      console.log(1);
+      
+      console.log(
+        state.map((todoListItem: ITodoLsitItem) =>
+          todoListItem.id === action.id ? console.log(todoListItem) : ""
+        )
+      );
+
+      return state.map((todoListItem: ITodoLsitItem) =>
         todoListItem.id === action.id
           ? { ...todoListItem, value: action.value }
-          : todoListItem;
-      });
+          : todoListItem
+      );
     case "COMPLETE_TODO":
-      return state.map((todoListItem: ITodoLsitItem) => {
+      return state.map((todoListItem: ITodoLsitItem) =>
         todoListItem.id === action.id
           ? { ...todoListItem, completed: !todoListItem.completed }
-          : todoListItem;
-      });
+          : todoListItem
+      );
 
     default:
       return state;
