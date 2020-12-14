@@ -4,7 +4,7 @@ interface IAction{
     filter:string
     value: string;
 }
-export const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action:IAction) => {
+export const visibilityFilter = (state:string = VisibilityFilters.SHOW_ALL, action:IAction) => {
   switch (action.type) {
     case 'SET_VISIBILITY_FILTER':
       return action.filter

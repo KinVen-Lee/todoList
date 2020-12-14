@@ -19,10 +19,19 @@ export const setVisibilityFilter = (filter: string) => ({
   filter,
 });
 
-export const toggleTodo = (id:number) => ({
-  type: 'TOGGLE_TODO',
-  id
-})
+export const delTodoAction = (id: number) => ({
+  type: "DEL_TODO",
+  id,
+});
+export const completeTodoAction = (id: number) => ({
+  type: "COMPLETE_TODO",
+  id,
+});
+export const updateTodoAciton = (id: number, value: string) => ({
+  type: "UPDATE_TODO",
+  id,
+  value,
+});
 
 export const VisibilityFilters = {
   SHOW_ALL: "SHOW_ALL",

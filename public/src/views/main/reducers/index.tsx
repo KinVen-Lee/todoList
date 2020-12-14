@@ -1,2 +1,2 @@
 export {visibilityFilter} from './visibilityFilter'
-export {todos} from './todos'
+export {todoList} from './todoList'
