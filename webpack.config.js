@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     // 指定入口文件
-    entry: ["./public/src/index.tsx"],
+    entry: ["./src/index.tsx"],
     // 指定输出文件名
     output: {
         filename: "./js/main.js"
@@ -39,7 +39,7 @@ module.exports = {
     devtool: process.env.NODEENV === "production" ? false : "inline-source-map",
     // 这里使用webpack-dev-server，进行本地开发调试
     devServer: {
-        contentBase: "./public",
+        contentBase: "./src",
         stats: "errors-only",
         compress: false,
         host: "localhost",
@@ -52,7 +52,7 @@ module.exports = {
             cleanOnceBeforeBuildPatterns: ["./dist"]
         }),
         new HtmlWebpackPlugin({
-            template: "./public/asset/index.html"
+            template: "./asset/index.html"
         })
     ]
 };

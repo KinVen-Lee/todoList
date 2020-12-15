@@ -34,6 +34,7 @@ const TodoListItem = (prop: IProp) => {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     prop.updateTodo(value);
+    setIsEditor(!isEditor);
   }
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
