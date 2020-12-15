@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent } from "react";
-import { addTodoAction } from "../actions";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
+import { addTodoAction } from "../actions";
 interface IProp {
   dispatch: Dispatch;
 }

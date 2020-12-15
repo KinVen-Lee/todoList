@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import {
-  updateTodoAciton,
-  delTodoAction,
-  completeTodoAction,
+  completeTodoAction, delTodoAction, updateTodoAciton
 } from "../actions";
 
 interface IProp {
